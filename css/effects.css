@@ -1,0 +1,50 @@
+/* ==========================================================
+   EFFECTS: status messages, win/lose animations, responsive
+   ========================================================== */
+
+/* ---------- Status message colors ---------- */
+.status--info { color: var(--muted); }
+
+.status--win {
+  font-size: 1.15rem;
+  color: var(--success);
+}
+
+.status--lose {
+  font-size: 1.1rem;
+  color: var(--danger);
+}
+
+/* ---------- Board animations ---------- */
+.board.is-lost { animation: shake 0.45s ease; }
+.board.is-won  { animation: win-glow 1.4s ease-in-out 2; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(7px); }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(3px); }
+}
+
+@keyframes win-glow {
+  0%, 100% { filter: none; }
+  50%      { filter: drop-shadow(0 0 18px rgba(74, 222, 128, 0.85)); }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 520px) {
+  body { padding: 16px 8px 32px; }
+  .panel { padding: 10px; }
+  .lcd { min-width: 64px; font-size: 1.4rem; }
+  .face { width: 44px; height: 44px; font-size: 1.45rem; }
+  .difficulty__btn { padding: 8px 14px; font-size: 0.85rem; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .cell.is-revealed { animation: none; }
+  .board.is-lost,
+  .board.is-won { animation: none; }
+  .face, .difficulty__btn, .tool { transition: none; }
+}
