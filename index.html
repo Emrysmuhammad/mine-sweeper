@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <meta name="description" content="A classic Minesweeper game with three difficulty levels, chording, flags and best times.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/board.css">
+  <link rel="stylesheet" href="css/effects.css">
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <h1 class="game__title">Minesweeper</h1>
+      <p class="game__subtitle">Clear the board without hitting a mine.</p>
+    </header>
+
+    <div class="difficulty" role="radiogroup" aria-label="Difficulty">
+      <button class="difficulty__btn" type="button" role="radio" aria-checked="false" data-difficulty="beginner">Beginner</button>
+      <button class="difficulty__btn" type="button" role="radio" aria-checked="false" data-difficulty="intermediate">Intermediate</button>
+      <button class="difficulty__btn" type="button" role="radio" aria-checked="false" data-difficulty="expert">Expert</button>
+    </div>
+
+    <section class="panel" aria-label="Game">
+      <div class="hud">
+        <div id="mine-counter" class="lcd" role="img" aria-label="Mines left: 10">010</div>
+        <button id="face-btn" class="face" type="button" aria-label="Start a new game">&#128578;</button>
+        <div id="timer" class="lcd" role="img" aria-label="Time: 0 seconds">000</div>
+      </div>
+
+      <div class="board-wrap">
+        <div id="board" class="board" role="group" aria-label="Minesweeper board"></div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <button id="flag-mode" class="tool" type="button" aria-pressed="false">&#128681; Flag mode: off</button>
+      <p id="best-time" class="best">Best: --</p>
+    </div>
+
+    <p id="status" class="status status--info" role="status" aria-live="polite"></p>
+
+    <p class="help">
+      <strong>Click</strong> reveal &middot;
+      <strong>Right-click</strong> or <strong>long-press</strong> flag &middot;
+      <strong>Click a number</strong> to chord<br>
+      <kbd>&#8592;</kbd><kbd>&#8593;</kbd><kbd>&#8594;</kbd><kbd>&#8595;</kbd> move &middot;
+      <kbd>Enter</kbd> reveal &middot; <kbd>F</kbd> flag &middot; <kbd>R</kbd> new game
+    </p>
+  </main>
+
+  <noscript>
+    <p style="text-align:center;color:#fff">This game needs JavaScript to run.</p>
+  </noscript>
+
+  <script src="js/config.js"></script>
+  <script src="js/rng.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/stopwatch.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
